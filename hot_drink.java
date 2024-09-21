@@ -1,4 +1,5 @@
-public class ГорячийНапиток {
+// Базовый класс ГорячийНапиток
+class ГорячийНапиток {
     private String name;
     private int volume;
 
@@ -13,5 +14,13 @@ public class ГорячийНапиток {
 
     public int getVolume() {
         return volume;
+    }
+
+    @Override
+    public String toString() {
+        return "ГорячийНапиток{" +
+                "name='" + name + '\'' +
+                ", volume=" + volume +
+                '}';
     }
 }
