@@ -1,26 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
+// Класс ГорячихНапитковАвтомат
+class ГорячихНапитковАвтомат implements ТорговыйАвтомат {
+    private СпецифическийГорячийНапиток[] напитки;
 
-public class ГорячихНапитковАвтомат implements ТорговыйАвтомат {
-    private List<ГорячийНапитокСТемпературой> напитки;
-
-    public ГорячихНапитковАвтомат() {
-        напитки = new ArrayList<>();
-    }
-
-    public void addProduct(ГорячийНапитокСТемпературой продукт) {
-        напитки.add(продукт);
+    public ГорячихНапитковАвтомат(СпецифическийГорячийНапиток[] напитки) {
+        this.напитки = напитки;
     }
 
     @Override
-    public ГорячийНапиток getProduct(String name, int volume, int температура) {
-        for (ГорячийНапитокСТемпературой напиток : напитки) {
-            if (напиток.getName().equals(name) && 
-                напиток.getVolume() == volume && 
-                напиток.getТемпература() == температура) {
+    public ГорячийНапиток getProduct(String name, int volume, int temperature) {
+        for (СпецифическийГорячийНапиток напиток : напитки) {
+            if (напиток.getName().equals(name) &&
+                напиток.getVolume() == volume &&
+                напиток.getТемпература() == temperature) {
                 return напиток;
             }
         }
-        return null; // Если не найдено, можно кинуть исключение или вернуться к null
+        System.out.println("Напиток не найден.");
+        return null;
     }
 }
